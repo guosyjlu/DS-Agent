@@ -2,13 +2,13 @@
 
 This is the official implementation of our work "DS-Agent: Automated Data Science by Empowering Large Language Models with Case-Based Reasoning". [[arXiv Version]](https://arxiv.org/abs/2402.17453) [[Download Benchmark(Google Drive)]](https://drive.google.com/file/d/1xUd1nvCsMLfe-mv9NBBHOAtuYnSMgBGx/view?usp=sharing)
 
-![overview.png](.\figures\overview.png)
+![overview.png](figures/overview.png)
 
 ## Benchmark
 
 We select 30 representative data science tasks covering three data modalities and two fundamental ML task types. Please download the datasets and corresponding configuration files via [[Google Drive]](https://drive.google.com/file/d/1xUd1nvCsMLfe-mv9NBBHOAtuYnSMgBGx/view?usp=sharing)  here and unzip them to the directory of "development/benchamarks".
 
-![overview.png](.\figures\task.png)
+![overview.png](figures/task.png)
 
 ## Setup
 
