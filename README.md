@@ -1,12 +1,12 @@
 # DS-Agent
 
-This is the official implementation of our work "DS-Agent: Automated Data Science by Empowering Large Language Models with Case-Based Reasoning". [[arXiv Version]](https://arxiv.org/abs/2402.17453) [[Download Benchmark(Google Drive)]](https://drive.google.com/file/d/1xUd1nvCsMLfe-mv9NBBHOAtuYnSMgBGx/view?usp=sharing)
+This is the official implementation of our work "DS-Agent: Automated Data Science by Empowering Large Language Models with Case-Based Reasoning".
 
 ![overview.png](figures/overview.png)
 
 ## Benchmark and Dataset
 
-We select 30 representative data science tasks covering three data modalities and two fundamental ML task types. Please download the datasets and corresponding configuration files via [[Google Drive]](https://drive.google.com/file/d/1xUd1nvCsMLfe-mv9NBBHOAtuYnSMgBGx/view?usp=sharing)  here and unzip them to the directory of "development/benchmarks". Besides, we collect the human insight cases from Kaggle in development/data.zip. Please unzip it, too.
+We select 30 representative data science tasks covering three data modalities and two fundamental ML task types. We will open-source these datasets after publication.
 
 ![overview.png](figures/task.png)
 
@@ -56,16 +56,3 @@ bash start_api.sh
 ```
 
 Then, run the script shell and replace the configuration --llm by mixtral.
-
-## Cite
-
-Please consider citing our paper if you find this work useful:
-
-```
-@article{DS-Agent,
-  title={DS-Agent: Automated Data Science by Empowering Large Language Models with Case-Based Reasoning},
-  author={Guo, Siyuan and Deng, Cheng and Wen, Ying and Chen, Hechang and Chang, Yi and Wang, Jun},
-  journal={arXiv preprint arXiv:2402.17453},
-  year={2024}
-}
-```
