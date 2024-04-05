@@ -47,6 +47,7 @@ Here are some solution cases relevant to this research problem, each indicated b
 
 
 **[1]**
+
 (1) The overall design of this code is to train a model for a Kaggle competition on feedback effectiveness. It uses a transformer-based model architecture to perform token classification on the input text data. The code tokenizes the input text, adds special tokens for discourse types, and trains the model using the provided hyperparameters. Finally, it generates predictions on the test dataset and saves them in a submission file.
 
 (2) The overall model architecture is based on a transformer model for token classification. It uses the "deberta-v3-large" pre-trained model as the base model. The input text is tokenized using the AutoTokenizer from the transformers library. Special tokens are added for each discourse type, such as "[CLS_CLAIM]" and "[END_CLAIM]". The tokenized input is then passed through the transformer model, and the output is fed into a linear layer for token classification. The model is trained using the AdamW optimizer with gradient checkpointing and mixed precision training (FP16). The training process includes multiple epochs and uses a batch size of 8 for training and 1 for evaluation.
