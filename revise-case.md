@@ -18,20 +18,15 @@ We give an example of how DS-Agent revises the experiment plan in the previous s
 
 > final Accuracy on validation set:  0.7521367521367521
 
-
-
 Now, we present how DS-Agent performs the revise loop in the second iteration step. 
 
 ## 1. ReviseRank
 
 In the Revise loop, DS-Agent first utilizes RankReviser to revise the ranking order of the top-k (k=5 in this paper) retrieved cases in response to the execution feedback. The prompt design is presented in Appendix D.1, and we show the exact prompt as below:
 
-
-
 ### 1.1 Prompt of ReviseRank:
 
 You are a helpful intelligent system that can identify the informativeness of some cases given a research problem and research log.
-
 
 **Research Problem:**
 
@@ -39,16 +34,17 @@ You are solving this machine learning tasks of classification:
 The dataset presented here (the ChatGPT prompt dataset) comprises a series of sentences. Given the text, your task is to predict the label of it in range of {0, 1, ..., 7}. The evaluation metric is accuracy.
 We provide an overall pipeline in train.py. Now fill in the provided train.py script to train a language model to get a good performance. 
 
-
-
 **Research Log:**
 [Initial State] Lack of a baseline model as a good starting point for the current research problem.
+
+
 [Experiment Summary]: In the last step, a simple baseline model for text classification was defined using logistic regression. The `train_model` function was modified to include a `CountVectorizer` to convert the text into a matrix of token counts. The model was trained using the training data and evaluated on the validation data.
+
+
 [Experiment Result]: The accuracy of the model on the validation data was 0.7521367521367521. This is the first experiment result, so there is no previous performance to compare it to.
 
-
-
 Here are some solution cases relevant to this research problem, each indicated by number identifier [].
+
 
 
 **[1]**
@@ -85,8 +81,6 @@ Here are some solution cases relevant to this research problem, each indicated b
 - Mixed precision training: The code uses mixed precision training (FP16) to speed up training and reduce memory usage. This technique takes advantage of the fact that some computations can be performed with lower precision without significantly affecting the final results.
 - Grouping and batching: The code groups the input data by essay_id and applies batching to improve training efficiency. It also uses the DataCollatorForTokenClassification from the transformers library to handle padding and batching of the input data.
 - Model ensemble: The code performs k-fold cross-validation and generates predictions for each fold. The final predictions are obtained by averaging the predictions from all folds, which can help improve the model's performance and reduce overfitting.
-  
-  
 
 **[2]**
 
@@ -190,38 +184,27 @@ Here are some solution cases relevant to this research problem, each indicated b
 
 Rank 5 cases above based on their relevance, informativess and helpfulness to the research problem and the research log for planning the next experiment step. The cases should be listed in descending order using identifiers. The most relevant, informative and helpful case should be listed first. The output format should be [] > [], e.g., [1] > [2]. Only response the ranking results, do not say any word or explain.
 
-
-
 ### 1.2 Generated Outputs by LLMs
 
 [1] > [5] > [2] > [3] > [4]
-
-
 
 ### 1.3 Explanations
 
 In this step, DS-Agent analyzes the given task, the experiment plan of last step, and its execution feedback, then, it revises the ranking order of 5 retrieved cases. In this step, the case [1] is regarded as the case with highest utility by LLMs, and will be proceeded to Planner to revise the current experiment plan.
 
-
-
 ## 2. Reuse
 
 In this step, DS-Agent utilizes the new retrieved case [1] to revise the experiment plan of the last step. The prompt design is presented in Appendix D.3, and we show the exact prompt as below:
 
-
-
 ### 2.1 Prompt of Planner
 
 You are a helpful AI expert assistant, responsible for decision making on the experiment plans. You have the following information including, research problem, research log, python code, and a relevant case so far. 
-
 
 **The research problem is:**
 
 You are solving this machine learning tasks of classification: 
 The dataset presented here (the ChatGPT prompt dataset) comprises a series of sentences. Given the text, your task is to predict the label of it in range of {0, 1, ..., 7}. The evaluation metric is accuracy.
 We provide an overall pipeline in train.py. Now fill in the provided train.py script to train a language model to get a good performance.
-
-
 
 **The current research log is:**
 
@@ -230,8 +213,6 @@ We provide an overall pipeline in train.py. Now fill in the provided train.py sc
 [Experiment Summary]:  In the last step, a simple baseline model for text classification was defined using logistic regression. The `train_model` function was modified to include a `CountVectorizer` to convert the text into a matrix of token counts. The model was trained using the training data and evaluated on the validation data.
 
 [Experiment Result]: The accuracy of the model on the validation data was 0.7521367521367521. This is the first experiment result, so there is no previous performance to compare it to.
-
-
 
 **The python code of last step experiment for the current research problem is:**
 
@@ -352,11 +333,18 @@ Follow these instructions and do not forget them:
 
 Please carefully reason over this relevant case and the provided research problem, and then response exactly in the following format:
 [Reflection]: What is the progress of the experiment for this research problem? What does the current research log and python code reveal?
-[Reasoning]: How can the current research problem benefit from the relevant case?
-[Thought]: To solve this research problem and iteratively improve the performance, what is the plans for next experiment trial?
-[Check]: List all plans in [Thought] and carefully check (1) whether the plan needs multiple experiment trials; (2) has been implemented in the current python code; or (3) violates the listed prohibitions above.
-[Decision]: Give a short, precise but detailed instruction summary on the final experiment plan in next single trial.
 
+
+[Reasoning]: How can the current research problem benefit from the relevant case?
+
+
+[Thought]: To solve this research problem and iteratively improve the performance, what is the plans for next experiment trial?
+
+
+[Check]: List all plans in [Thought] and carefully check (1) whether the plan needs multiple experiment trials; (2) has been implemented in the current python code; or (3) violates the listed prohibitions above.
+
+
+[Decision]: Give a short, precise but detailed instruction summary on the final experiment plan in next single trial.
 
 
 
@@ -372,13 +360,9 @@ Please carefully reason over this relevant case and the provided research proble
 
 [Decision]: The next step in the experiment will involve implementing a transformer-based model, such as BERT, for the text classification task. The input text will be tokenized and passed through the transformer model. The output of the transformer model will be fed into a linear layer for classification. The learning rate and the number of training epochs will be tuned to optimize the performance of the model. The performance of the model will be evaluated using the accuracy metric on the validation set.
 
-
-
 ### 2.3 Explanation
 
 In this step, DS-Agent decides to revise the experiment plan from using TF-IDF+Logistic Regression to pretrained language model BERT after analyzing the retrieved case that presents techniques of pretrained language models. 
-
-
 
 ## 3. Execution
 
