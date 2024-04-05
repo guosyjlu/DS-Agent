@@ -46,7 +46,6 @@ We provide an overall pipeline in train.py. Now fill in the provided train.py sc
 Here are some solution cases relevant to this research problem, each indicated by number identifier [].
 
 
-
 **[1]**
 (1) The overall design of this code is to train a model for a Kaggle competition on feedback effectiveness. It uses a transformer-based model architecture to perform token classification on the input text data. The code tokenizes the input text, adds special tokens for discourse types, and trains the model using the provided hyperparameters. Finally, it generates predictions on the test dataset and saves them in a submission file.
 
