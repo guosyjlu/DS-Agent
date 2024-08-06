@@ -62,10 +62,16 @@ Then, run the script shell and replace the configuration --llm by mixtral.
 Please consider citing our paper if you find this work useful:
 
 ```
-@article{DS-Agent,
-  title={DS-Agent: Automated Data Science by Empowering Large Language Models with Case-Based Reasoning},
-  author={Guo, Siyuan and Deng, Cheng and Wen, Ying and Chen, Hechang and Chang, Yi and Wang, Jun},
-  journal={arXiv preprint arXiv:2402.17453},
-  year={2024}
+
+@InProceedings{DS-Agent,
+  title = 	 {{DS}-Agent: Automated Data Science by Empowering Large Language Models with Case-Based Reasoning},
+  author =       {Guo, Siyuan and Deng, Cheng and Wen, Ying and Chen, Hechang and Chang, Yi and Wang, Jun},
+  booktitle = 	 {Proceedings of the 41st International Conference on Machine Learning},
+  pages = 	 {16813--16848},
+  year = 	 {2024},
+  volume = 	 {235},
+  series = 	 {Proceedings of Machine Learning Research},
+  publisher =    {PMLR}
 }
+
 ```
