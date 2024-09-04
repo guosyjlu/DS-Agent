@@ -33,7 +33,7 @@ Run DS-Agent for development tasks with the following command:
 
 ```shell
 cd development/MLAgentBench
-python runner.py --task feedbackv2 --llm-name gpt-3.5-turbo-16k --edit-script-llm-name gpt-3.5-turbo-16k
+python runner.py --task feedback --llm-name gpt-3.5-turbo-16k --edit-script-llm-name gpt-3.5-turbo-16k
 ```
 
 During execution, logs and intermediate solution files will be saved in logs/ and workspace/. 
