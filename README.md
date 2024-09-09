@@ -57,6 +57,14 @@ bash start_api.sh
 
 Then, run the script shell and replace the configuration --llm by mixtral.
 
+## Frequently Asked Questions
+
+### Q1. How to calculate the best rank and mean rank of the evaluated agents?
+**A1.** Assume there are two agents A and B. Given a data science task, both agents perform 5 random trials to build models. Then, we use the predefined evaluation metric to evaluate the built model in the testing set. As such, we can rank these ten built models via the evaluation results.
+> Assume the models built by Agent A attains the rank [1,3,5,7,9], and the models built by Agent B attains the rank [2,4,6,8,10].
+
+As such, MeanRank(A)=mean([1,3,5,7,9])=5, BestRank(A)=min([1,3,5,7,9])=1. Similarly, MeanRank(B)=6, BestRank(B)=2.
+
 ## Cite
 
 Please consider citing our paper if you find this work useful:
