@@ -8,6 +8,9 @@ This is the official implementation of our work "DS-Agent: Automated Data Scienc
 
 We select 30 representative data science tasks covering three data modalities and two fundamental ML task types. Please download the datasets and corresponding configuration files via [[Google Drive]](https://drive.google.com/file/d/1xUd1nvCsMLfe-mv9NBBHOAtuYnSMgBGx/view?usp=sharing)  here and unzip them to the directory of "development/benchmarks". Besides, we collect the human insight cases from Kaggle in development/data.zip. Please unzip it, too.
 
+> [!WARNING]
+> **Non-Infringement:** The pre-processed data we provide is intended exclusively for educational and research purposes. We do not claim ownership of the original data, and any use of this data must respect the rights of the original creators. Users are responsible for ensuring that their use of the data does not infringe on any copyrights or other intellectual property rights.
+
 ![overview.png](figures/task.png)
 
 ## Setup
