@@ -68,6 +68,14 @@ Then, run the script shell and replace the configuration --llm by mixtral.
 
 As such, MeanRank(A)=mean([1,3,5,7,9])=5, BestRank(A)=min([1,3,5,7,9])=1. Similarly, MeanRank(B)=6, BestRank(B)=2.
 
+### Q2. How to adapt DS-Agent to custom datasets/Kaggle competitions?
+**A2.** First of all, the case bank of the current version only covers data modalities of tabular, text and time series data. Thus, if the new task involves other data modalities, you need to collect corresponding cases by manual and store them into the case bank. Then, you need to construct a directory in `development/benchmarks/`. Please refer to the format of the given benchmark tasks and prepare the following files:
+- `train.csv` and `test.csv`: the training dataset and testing dataset.
+- `submission.py`: implementation of the desired evaluation metric in the custom task (e.g., MAE for regression task and Accuracy for classification task).
+- `train.py`: an initial script for the custom task, with implementation of basic data loading, training and evaluation. Note that the current benchmarks use random guess as an initial training solution.
+- `prepared`: a sign file required by MLAgentBench. Just copy one from other benchmark tasks.
+- `research_problem.txt`: the task description of the custom task. You can refer to the other benchmark tasks.
+
 ## Cite
 
 Please consider citing our paper if you find this work useful:
