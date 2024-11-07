@@ -1,21 +1,19 @@
 # clrs benchmark dependecies
-absl-py>=0.13.0
-attrs>=21.4.0
-chex>=0.0.8
-numpy>=1.21.1
+# absl-py>=0.13.0
+attrs>=23.1.0
+# chex>=0.0.8
+numpy>=1.26.1
 opt-einsum>=3.3.0
 six>=1.16.0
-toolz>=0.11.1
-torch>=2.0.0
-torchvision>=0.15.1
-transformers>=4.28.0
+# toolz>=0.11.1
+torch>=2.1.0
+torchvision>=0.16.0
+transformers>=4.34.1
 
 # images
 pillow
 
 # common ml packages
-torch>=2.0.0
-torchvision
 transformers
 scikit-learn
 xgboost
