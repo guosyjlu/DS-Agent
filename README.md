@@ -41,6 +41,8 @@ python runner.py --task feedback --llm-name gpt-3.5-turbo-16k --edit-script-llm-
 
 During execution, logs and intermediate solution files will be saved in logs/ and workspace/. 
 
+To facilitate potential future research, we also release the raw data of the task-specific evaluation metric for all the development tasks with four agents across five trials in `Raw-results-dev.xlsx`. Note that 'F' denotes failed trial in the excel document.
+
 ## Deployment Stage
 
 Run DS-Agent for deployment tasks with the provided command:
